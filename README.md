@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Weather App (React + Vite + Tailwind)
 
 **Footer credit:** Developed by Abdul Haque
@@ -23,3 +24,6 @@ npm run build
 
 ## Deploy
 - Upload `dist` to Netlify/Vercel or set up GitHub Pages.
+=======
+# weatherapp
+>>>>>>> f3dee9dba0a72b5ac473682023766f69579c38e6
