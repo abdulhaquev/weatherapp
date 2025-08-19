@@ -1,0 +1,51 @@
+.sunny-bg {
+  background: radial-gradient(1200px 800px at 20% 10%, #ffe08a 0%, rgba(255,224,138,0.2) 50%, transparent 70%),
+              linear-gradient(120deg, #ffb347, #ffcc33);
+  animation: sunnyPulse 6s ease-in-out infinite alternate;
+}
+@keyframes sunnyPulse { from { filter: brightness(1); } to { filter: brightness(1.25); } }
+
+.rainy-bg {
+  background: linear-gradient(180deg, #2c3e50, #34495e);
+  position: relative; overflow: hidden;
+}
+.rainy-bg::before {
+  content: ""; position: absolute; inset: -50% -20% 0 -20%;
+  background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.18) 0 2px, transparent 2px 6px);
+  transform: translateY(-100%); animation: rainFall 1.2s linear infinite;
+}
+@keyframes rainFall { to { transform: translateY(0); } }
+
+.snowy-bg {
+  background: linear-gradient(180deg, #9cc4ff, #e6f4ff);
+  position: relative; overflow: hidden;
+}
+.snowy-bg::before, .snowy-bg::after {
+  content: ""; position: absolute; inset: -20% 0 auto 0; height: 200%;
+  background-image:
+    radial-gradient(3px 3px at 10% 20%, rgba(255,255,255,0.9) 50%, transparent 52%),
+    radial-gradient(2px 2px at 30% 40%, rgba(255,255,255,0.8) 50%, transparent 52%),
+    radial-gradient(3px 3px at 60% 10%, rgba(255,255,255,0.9) 50%, transparent 52%),
+    radial-gradient(2px 2px at 80% 30%, rgba(255,255,255,0.8) 50%, transparent 52%);
+  animation: snowDrift 12s linear infinite;
+}
+.snowy-bg::after { animation-duration: 18s; opacity: .7; }
+@keyframes snowDrift { from { transform: translateY(-10%);} to { transform: translateY(40%);} }
+
+.cloudy-bg {
+  background: linear-gradient(180deg, #bdc3c7, #2c3e50);
+  position: relative; overflow: hidden;
+}
+.cloudy-bg::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(closest-side at 20% 30%, rgba(255,255,255,0.35), transparent 60%),
+    radial-gradient(closest-side at 60% 20%, rgba(255,255,255,0.25), transparent 60%),
+    radial-gradient(closest-side at 80% 50%, rgba(255,255,255,0.3), transparent 60%);
+  background-size: 300% 300%;
+  animation: clouds 30s linear infinite;
+}
+@keyframes clouds { 0% {background-position:0 0;} 50% {background-position:100% 50%;} 100% {background-position:0 0;} }
+
+.fade-in { animation: fadeIn 600ms ease; }
+@keyframes fadeIn { from {opacity:0; transform: translateY(6px);} to {opacity:1; transform: none;} }
