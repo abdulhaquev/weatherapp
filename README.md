@@ -1,29 +1,43 @@
-<<<<<<< HEAD
-# Weather App (React + Vite + Tailwind)
+# ​​ Weather App
 
-**Footer credit:** Developed by Abdul Haque
+A simple, responsive weather app built with **React** and **Tailwind CSS**, delivering:
+- Real-time weather and 5-day forecasts powered by **OpenWeatherMap**
+- Geolocation support
+- °C / °F unit toggle
+- Dynamic weather-themed backgrounds  
+**Built & deployed in just 1 hour!**
 
-## Setup
-1. Install dependencies
+---
+
+##  Live Demo  
+Check the app live here: **https://weatherapp-kohl-xi.vercel.app/**
+
+---
+
+##  Features
+-  Auto-detects your location or lets you search any city  
+-  Displays current temperature, description, humidity, wind, and pressure  
+-  5-day forecast with highs and lows  
+-  Clean and responsive UI with animated backgrounds (sunny, rainy, snowy, cloudy)  
+-  Toggle between Celsius and Fahrenheit  
+-  Fast deployment on Vercel
+
+---
+
+##  Tech Stack
+| Layer         | Tools / Services                |
+|---------------|---------------------------------|
+| UI            | React, Tailwind CSS             |
+| Icons         | Lucide React                    |
+| Weather Data  | OpenWeatherMap API              |
+| Hosting       | Vercel                          |
+
+---
+
+##  Installation
+
 ```bash
+git clone https://github.com/abdulhaquev/weatherapp.git
+cd weatherapp
 npm install
-```
-2. Create `.env` from `.env.example` and add your **OpenWeatherMap** API key:
-```
-VITE_OWM_API_KEY=YOUR_KEY
-```
-3. Run
-```bash
-npm run dev
-```
 
-## Build
-```bash
-npm run build
-```
-
-## Deploy
-- Upload `dist` to Netlify/Vercel or set up GitHub Pages.
-=======
-# weatherapp
->>>>>>> f3dee9dba0a72b5ac473682023766f69579c38e6
