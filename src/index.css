@@ -7,3 +7,44 @@
 
 /* small base styles */
 .card { @apply bg-white/85 backdrop-blur-md rounded-2xl shadow-soft; }
+
+.theme-sunny .card {
+  background: #fff;
+  border: 1px solid #ffe08a;
+  box-shadow: 0 4px 10px rgba(255, 193, 7, 0.2);
+}
+.theme-sunny h2, 
+.theme-sunny h3 {
+  color: #e67e22;
+}
+
+
+.theme-rainy .card {
+  background: #2c3e50;
+  color: #ecf0f1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+}
+.theme-rainy h2 {
+  color: #3498db;
+}
+
+
+.theme-snowy .card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #d6eaf8;
+  box-shadow: 0 4px 12px rgba(173, 216, 230, 0.3);
+}
+.theme-snowy h2 {
+  color: #2980b9;
+}
+
+
+.theme-cloudy .card {
+  background: #f7f9fa;
+  border: 1px solid #dcdde1;
+  box-shadow: 0 2px 8px rgba(127, 140, 141, 0.2);
+}
+.theme-cloudy h2 {
+  color: #7f8c8d;
+}

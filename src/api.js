@@ -24,3 +24,5 @@ export async function getForecastByCoords(lat, lon, unit = "metric") {
   if (!res.ok) throw new Error("Failed to fetch forecast by coordinates");
   return res.json();
 }
+
+

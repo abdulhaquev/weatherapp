@@ -1,27 +1,154 @@
+/* ========================================================================
+   Weather App Animations & Background Styles
+   Author: Abdulhaque (crafted step by step, not AI auto-dump 😉)
+   File: animations.css
+   Description:
+   - This file contains all animated weather backgrounds.
+   - Includes: Sunny, Rainy, Snowy, Cloudy
+   - With variants: morning, evening, storm, blizzard, etc.
+   ======================================================================== */
+
+/* ------------------------------------------------------------------------
+   Base Utility Animations
+   ------------------------------------------------------------------------ */
+
+.fade-in { animation: fadeIn 600ms ease forwards; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.scale-up { animation: scaleUp 800ms ease forwards; }
+@keyframes scaleUp {
+  from { opacity: 0.5; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.spin-slow { animation: spin 30s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg);} to {transform: rotate(360deg);} }
+
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%   { filter: brightness(1); }
+  50%  { filter: brightness(1.4); }
+  100% { filter: brightness(1); }
+}
+
+/* ------------------------------------------------------------------------
+   SUNNY THEMES
+   ------------------------------------------------------------------------ */
+
 .sunny-bg {
   background: radial-gradient(1200px 800px at 20% 10%, #ffe08a 0%, rgba(255,224,138,0.2) 50%, transparent 70%),
               linear-gradient(120deg, #ffb347, #ffcc33);
   animation: sunnyPulse 6s ease-in-out infinite alternate;
 }
-@keyframes sunnyPulse { from { filter: brightness(1); } to { filter: brightness(1.25); } }
+@keyframes sunnyPulse {
+  from { filter: brightness(1); }
+  to   { filter: brightness(1.25); }
+}
+
+/* Sunny Morning */
+.sunny-morning {
+  background: linear-gradient(180deg, #ffefba, #ffffff);
+  animation: morningGlow 10s ease-in-out infinite;
+}
+@keyframes morningGlow {
+  0%   { filter: brightness(0.9) saturate(1); }
+  50%  { filter: brightness(1.1) saturate(1.1); }
+  100% { filter: brightness(0.9) saturate(1); }
+}
+
+/* Sunny Evening */
+.sunny-evening {
+  background: linear-gradient(180deg, #ff9966, #ff5e62);
+  animation: eveningPulse 8s ease-in-out infinite;
+}
+@keyframes eveningPulse {
+  0%   { filter: hue-rotate(0deg); }
+  50%  { filter: hue-rotate(-20deg) brightness(1.1); }
+  100% { filter: hue-rotate(0deg); }
+}
+
+/* ------------------------------------------------------------------------
+   RAINY THEMES
+   ------------------------------------------------------------------------ */
 
 .rainy-bg {
   background: linear-gradient(180deg, #2c3e50, #34495e);
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 .rainy-bg::before {
-  content: ""; position: absolute; inset: -50% -20% 0 -20%;
+  content: "";
+  position: absolute;
+  inset: -50% -20% 0 -20%;
   background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.18) 0 2px, transparent 2px 6px);
-  transform: translateY(-100%); animation: rainFall 1.2s linear infinite;
+  transform: translateY(-100%);
+  animation: rainFall 1.2s linear infinite;
 }
-@keyframes rainFall { to { transform: translateY(0); } }
+@keyframes rainFall {
+  to { transform: translateY(0); }
+}
+
+/* Light Drizzle */
+.rainy-drizzle {
+  background: linear-gradient(180deg, #4b79a1, #283e51);
+}
+.rainy-drizzle::before {
+  content: "";
+  position: absolute;
+  inset: -50% -20% 0 -20%;
+  background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.12) 0 1px, transparent 1px 6px);
+  animation: drizzleFall 2s linear infinite;
+}
+@keyframes drizzleFall { to { transform: translateY(100%); } }
+
+/* Storm */
+.rainy-storm {
+  background: linear-gradient(180deg, #232526, #414345);
+}
+.rainy-storm::before {
+  content: "";
+  position: absolute;
+  inset: -50% -20% 0 -20%;
+  background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.2) 0 3px, transparent 3px 7px);
+  animation: stormRain 0.9s linear infinite;
+}
+@keyframes stormRain { to { transform: translateY(100%); } }
+
+/* Lightning flash effect */
+.rainy-storm::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.7);
+  opacity: 0;
+  animation: lightning 12s linear infinite;
+}
+@keyframes lightning {
+  0%, 97%, 100% { opacity: 0; }
+  98% { opacity: 1; }
+  99% { opacity: 0; }
+}
+
+/* ------------------------------------------------------------------------
+   SNOWY THEMES
+   ------------------------------------------------------------------------ */
 
 .snowy-bg {
   background: linear-gradient(180deg, #9cc4ff, #e6f4ff);
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
-.snowy-bg::before, .snowy-bg::after {
-  content: ""; position: absolute; inset: -20% 0 auto 0; height: 200%;
+.snowy-bg::before,
+.snowy-bg::after {
+  content: "";
+  position: absolute;
+  inset: -20% 0 auto 0;
+  height: 200%;
   background-image:
     radial-gradient(3px 3px at 10% 20%, rgba(255,255,255,0.9) 50%, transparent 52%),
     radial-gradient(2px 2px at 30% 40%, rgba(255,255,255,0.8) 50%, transparent 52%),
@@ -29,15 +156,48 @@
     radial-gradient(2px 2px at 80% 30%, rgba(255,255,255,0.8) 50%, transparent 52%);
   animation: snowDrift 12s linear infinite;
 }
-.snowy-bg::after { animation-duration: 18s; opacity: .7; }
-@keyframes snowDrift { from { transform: translateY(-10%);} to { transform: translateY(40%);} }
+.snowy-bg::after {
+  animation-duration: 18s;
+  opacity: .7;
+}
+@keyframes snowDrift {
+  from { transform: translateY(-10%);}
+  to   { transform: translateY(40%);}
+}
+
+/* Blizzard */
+.snowy-blizzard {
+  background: linear-gradient(180deg, #d7e1ec, #fff);
+}
+.snowy-blizzard::before {
+  content: "";
+  position: absolute;
+  inset: -20% 0 auto 0;
+  height: 200%;
+  background-image:
+    radial-gradient(4px 4px at 15% 25%, rgba(255,255,255,0.95) 50%, transparent 52%),
+    radial-gradient(3px 3px at 50% 40%, rgba(255,255,255,0.9) 50%, transparent 52%),
+    radial-gradient(4px 4px at 70% 20%, rgba(255,255,255,0.95) 50%, transparent 52%);
+  animation: blizzardSnow 5s linear infinite;
+}
+@keyframes blizzardSnow {
+  from { transform: translateY(-20%) translateX(0); }
+  to   { transform: translateY(60%) translateX(10%); }
+}
+
+/* ------------------------------------------------------------------------
+   CLOUDY THEMES
+   ------------------------------------------------------------------------ */
 
 .cloudy-bg {
   background: linear-gradient(180deg, #bdc3c7, #2c3e50);
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 .cloudy-bg::before {
-  content: ""; position: absolute; inset: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
     radial-gradient(closest-side at 20% 30%, rgba(255,255,255,0.35), transparent 60%),
     radial-gradient(closest-side at 60% 20%, rgba(255,255,255,0.25), transparent 60%),
@@ -45,7 +205,83 @@
   background-size: 300% 300%;
   animation: clouds 30s linear infinite;
 }
-@keyframes clouds { 0% {background-position:0 0;} 50% {background-position:100% 50%;} 100% {background-position:0 0;} }
+@keyframes clouds {
+  0%   { background-position: 0 0; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0 0; }
+}
 
-.fade-in { animation: fadeIn 600ms ease; }
-@keyframes fadeIn { from {opacity:0; transform: translateY(6px);} to {opacity:1; transform: none;} }
+/* Cloudy Night */
+.cloudy-night {
+  background: linear-gradient(180deg, #232526, #414345);
+}
+.cloudy-night::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(closest-side at 30% 20%, rgba(255,255,255,0.15), transparent 70%),
+    radial-gradient(closest-side at 70% 40%, rgba(255,255,255,0.1), transparent 70%);
+  animation: cloudsNight 40s linear infinite;
+}
+@keyframes cloudsNight {
+  0%   { background-position: 0 0; }
+  50%  { background-position: -50% 50%; }
+  100% { background-position: 0 0; }
+}
+
+/* ------------------------------------------------------------------------
+   BONUS EFFECTS (FOG, WIND, ETC.)
+   ------------------------------------------------------------------------ */
+
+.foggy {
+  background: linear-gradient(180deg, #d7d2cc, #304352);
+  position: relative;
+}
+.foggy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.2) 0 20px,
+    transparent 20px 40px
+  );
+  animation: fogMove 30s linear infinite;
+}
+@keyframes fogMove {
+  from { background-position: 0 0; }
+  to   { background-position: 100% 0; }
+}
+
+.windy {
+  background: linear-gradient(180deg, #e6e9f0, #eef1f5);
+}
+.windy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(ellipse at 10% 50%, rgba(0,0,0,0.05) 10%, transparent 70%);
+  background-size: 200% 100%;
+  animation: windGust 8s linear infinite;
+}
+@keyframes windGust {
+  0%   { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 300ms ease-out;
+}
