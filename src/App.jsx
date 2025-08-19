@@ -93,7 +93,7 @@ export default function App() {
       <div className="absolute inset-0 container py-6 md:py-10 flex flex-col gap-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <h1 className="text-2xl md:text-3xl font-semibold text-white drop-shadow">
-            Weather <span className="opacity-75">· React + Tailwind</span>
+            Weather <span className="opacity-75">· </span>
           </h1>
           <div className="flex items-center gap-3 w-full md:w-auto">
             <SearchBar onSearch={onSearch} />

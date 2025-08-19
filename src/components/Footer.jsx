@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="mt-auto py-4 text-center text-white/90 bg-black/20 backdrop-blur-sm border-t border-white/10">
       <div className="flex flex-col items-center gap-1">
         <p className="text-sm font-medium drop-shadow">Developed by Abdul Haque</p>
-        <p className="text-[11px] opacity-75">Data provided by OpenWeatherMap</p>
+        <p className="text-[11px] opacity-75"></p>
 
         {/* Social links */}
         <div className="flex gap-4 mt-2">
